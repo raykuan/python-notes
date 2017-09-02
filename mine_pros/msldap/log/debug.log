@@ -1,0 +1,1727 @@
+
+2017-07-25 21:20:06,243 ERROR    ./user/views.py[line:67] 'username'
+2017-07-25 21:20:06,244 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 68, in logout
+    raise e
+  File "./user/views.py", line 65, in logout
+    del request.session['username']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'username'
+2017-07-25 21:20:50,148 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-25 22:28:50,575 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-25 22:28:59,117 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:09:13,944 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:09:57,855 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:10:20,617 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:10:26,671 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:10:37,226 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:11:19,565 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:13:56,517 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:13:58,931 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:14:08,485 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:19:09,895 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:19:15,577 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:24:39,702 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:24:59,707 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:25:07,506 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:25:24,453 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:25:55,636 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 08:25:55,920 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:26:23,956 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 08:26:24,224 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:30:33,609 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:32:01,079 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:32:14,047 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:32:14,053 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:32:17,934 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:32:36,384 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:32:53,556 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:32:55,772 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:34:09,323 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:35:07,604 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:37:55,084 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:38:01,864 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:38:18,003 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:38:23,611 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:38:51,811 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:38:53,935 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:39:00,594 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:41:00,624 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:46:09,864 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:51:12,019 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:52:31,147 ERROR    ./user/adhandler.py[line:94] {'desc': 'Bad search filter'}
+2017-07-26 08:52:31,147 ERROR    ./user/adhandler.py[line:190] {'desc': 'Bad search filter'}
+2017-07-26 08:52:31,147 ERROR    ./user/views.py[line:49] {'desc': 'Bad search filter'}
+2017-07-26 08:52:31,148 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 50, in login
+    raise e
+  File "./user/views.py", line 19, in login
+    res = ad.user_authn(username, password)
+  File "./user/adhandler.py", line 191, in user_authn
+    raise e
+  File "./user/adhandler.py", line 176, in user_authn
+    status = self.get_user_status(user)
+  File "./user/adhandler.py", line 95, in get_user_status
+    raise e
+  File "./user/adhandler.py", line 90, in get_user_status
+    results_tmp = self.conn.search_s(user_basedn, search_scope, search_filter, retrieve_attributes)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 795, in search_ext_s
+    msgid = self.search_ext(base,scope,filterstr,attrlist,attrsonly,serverctrls,clientctrls,timeout,sizelimit)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 791, in search_ext
+    timeout,sizelimit,
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 294, in _ldap_call
+    result = func(*args,**kwargs)
+ldap.FILTER_ERROR: {'desc': 'Bad search filter'}
+2017-07-26 08:52:33,489 ERROR    ./user/views.py[line:67] 'username'
+2017-07-26 08:52:33,489 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 68, in logout
+    raise e
+  File "./user/views.py", line 65, in logout
+    del request.session['username']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'username'
+2017-07-26 08:52:48,060 ERROR    ./user/adhandler.py[line:94] {'desc': 'Bad search filter'}
+2017-07-26 08:52:48,060 ERROR    ./user/adhandler.py[line:190] {'desc': 'Bad search filter'}
+2017-07-26 08:52:48,060 ERROR    ./user/views.py[line:49] {'desc': 'Bad search filter'}
+2017-07-26 08:52:48,060 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 50, in login
+    raise e
+  File "./user/views.py", line 19, in login
+    res = ad.user_authn(username, password)
+  File "./user/adhandler.py", line 191, in user_authn
+    raise e
+  File "./user/adhandler.py", line 176, in user_authn
+    status = self.get_user_status(user)
+  File "./user/adhandler.py", line 95, in get_user_status
+    raise e
+  File "./user/adhandler.py", line 90, in get_user_status
+    results_tmp = self.conn.search_s(user_basedn, search_scope, search_filter, retrieve_attributes)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 795, in search_ext_s
+    msgid = self.search_ext(base,scope,filterstr,attrlist,attrsonly,serverctrls,clientctrls,timeout,sizelimit)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 791, in search_ext
+    timeout,sizelimit,
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 294, in _ldap_call
+    result = func(*args,**kwargs)
+ldap.FILTER_ERROR: {'desc': 'Bad search filter'}
+2017-07-26 08:54:13,738 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 08:56:28,259 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:02:52,585 ERROR    ./user/views.py[line:283] 'user'
+2017-07-26 09:02:52,585 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /cancelpwd/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 284, in cancelpwd
+    raise e
+  File "./user/views.py", line 279, in cancelpwd
+    del request.session['user']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'user'
+2017-07-26 09:02:52,876 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:03:03,596 ERROR    ./user/views.py[line:283] 'user'
+2017-07-26 09:03:03,596 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /cancelpwd/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 284, in cancelpwd
+    raise e
+  File "./user/views.py", line 279, in cancelpwd
+    del request.session['user']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'user'
+2017-07-26 09:09:41,508 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:10:41,142 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:10:47,232 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:11:12,724 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:11:18,415 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:11:28,597 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:11:54,102 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:12:39,956 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:14:21,688 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:14:30,313 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:14:38,644 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:17:37,472 ERROR    ./user/views.py[line:283] 'user'
+2017-07-26 09:17:37,472 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /cancelpwd/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 284, in cancelpwd
+    raise e
+  File "./user/views.py", line 279, in cancelpwd
+    del request.session['user']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'user'
+2017-07-26 09:17:52,573 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:19:15,001 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:20:12,635 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:50:57,508 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:51:41,353 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:54:18,571 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 09:55:26,081 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 10:00:29,944 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 10:00:40,765 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 10:05:15,267 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 10:10:06,601 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 10:50:49,741 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 10:51:13,662 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 10:54:11,007 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 10:55:40,661 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 10:58:55,298 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 12:20:23,732 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 12:31:15,796 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 13:43:14,616 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 13:46:47,043 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 13:51:18,096 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 13:52:43,401 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 13:53:40,842 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 13:54:41,551 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 13:55:12,141 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 13:57:25,433 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 13:58:23,575 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 14:03:22,934 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 14:05:18,700 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 14:10:52,929 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 14:12:45,628 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 14:13:01,918 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 14:17:03,648 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 14:43:20,991 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-26 14:49:39,730 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 15:08:13,748 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-26 19:11:05,765 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:32:07,565 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:37:03,973 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:38:52,127 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:44:02,290 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:45:29,577 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:45:29,581 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:46:50,369 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:48:30,978 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:48:54,646 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:49:02,071 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:56:37,023 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:57:07,925 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:57:20,328 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 08:57:57,233 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 09:11:30,069 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 09:12:19,261 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 09:24:42,651 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 11:06:15,770 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 11:16:36,411 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-27 11:22:49,542 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-27 11:32:49,254 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 11:32:49,259 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 13:54:06,837 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 14:21:00,694 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 14:22:10,847 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 14:22:24,762 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 14:23:54,688 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-27 14:24:11,283 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-27 14:24:41,364 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-27 14:28:23,325 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-27 14:35:22,197 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 16:21:33,077 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 16:21:39,722 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 16:22:05,703 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 16:32:49,628 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 16:40:44,323 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-27 16:42:57,144 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 08:07:50,111 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 08:07:51,575 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 09:15:59,180 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 09:16:06,363 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 09:34:47,394 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 09:35:16,473 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 16:16:49,838 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 16:17:36,282 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:17:49,119 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:18:18,955 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 16:22:48,820 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:22:53,846 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 16:25:37,437 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:31:41,777 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 16:31:43,239 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 16:31:51,642 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 16:32:52,016 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:36:13,100 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:40:52,246 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:47:15,426 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 16:47:53,919 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:47:54,134 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 16:47:55,006 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:48:51,018 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 16:53:22,385 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /forgetpass/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 258, in forget_pass
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 416, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-28 17:27:01,809 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 17:49:35,941 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 17:49:37,279 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 18:30:09,013 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-28 18:45:11,164 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-29 16:23:34,720 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-30 10:26:33,769 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /mustchangepwd/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 169, in must_change_pwd
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 262, in set_pwd
+    self.result['code'] = '1001'
+  File "./user/adhandler.py", line 416, in is_admin
+    # Break early once we detect admin
+  File "./user/adhandler.py", line 416, in is_admin
+    # Break early once we detect admin
+  File "./user/adhandler.py", line 416, in is_admin
+    # Break early once we detect admin
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 406, in is_admin
+    except ldap.LDAPError as e:
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-31 08:33:32,943 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-31 09:27:16,947 ERROR    ./user/views.py[line:283] 'user'
+2017-07-31 09:27:16,948 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /cancelpwd/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 284, in cancelpwd
+    raise e
+  File "./user/views.py", line 279, in cancelpwd
+    del request.session['user']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'user'
+2017-07-31 10:12:59,796 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /changepwd/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 126, in change_pwd
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 261, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 415, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 415, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 415, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 405, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-31 10:13:50,208 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /changepwd/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 126, in change_pwd
+    res = ad.set_pwd(user, newpwd)
+  File "./user/adhandler.py", line 261, in set_pwd
+    if self.is_admin(user_dn):
+  File "./user/adhandler.py", line 415, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 415, in is_admin
+    admin |= self.is_admin(group.decode())
+  File "./user/adhandler.py", line 415, in is_admin
+    admin |= self.is_admin(group.decode())
+  [Previous line repeated 942 more times]
+  File "./user/adhandler.py", line 405, in is_admin
+    results = self.conn.search_s(search_dn, ldap.SCOPE_BASE, '(memberOf=*)', ['memberOf'])
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 802, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 796, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 703, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 707, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 714, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 721, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/usr/local/lib/python3.6/site-packages/ldap/ldapobject.py", line 280, in _ldap_call
+    self._ldap_object_lock.acquire()
+  File "/usr/local/lib/python3.6/site-packages/ldap/__init__.py", line 72, in acquire
+    if _trace_level>=self._min_trace_level:
+RecursionError: maximum recursion depth exceeded in comparison
+2017-07-31 10:55:08,392 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-31 12:06:52,407 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-31 13:55:49,236 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-31 17:28:03,714 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-31 17:28:14,361 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-07-31 17:40:58,063 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 11:02:26,964 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 14:22:04,871 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 14:27:15,653 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 14:28:54,915 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 14:44:53,582 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 15:30:32,745 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 19:39:06,404 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 19:39:50,133 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 19:40:03,622 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 19:40:35,113 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 19:40:57,361 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 19:40:58,969 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 19:41:07,490 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-01 19:41:21,091 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-02 14:29:33,926 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-02 14:29:38,604 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-02 14:29:50,878 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-02 14:30:49,625 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-02 14:31:10,107 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-02 14:32:02,280 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-02 14:32:04,592 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-02 15:03:49,066 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-04 08:37:41,137 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-04 11:58:24,149 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-04 14:00:27,131 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-04 14:20:33,836 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-04 14:20:33,936 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-04 14:20:33,942 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-04 14:20:38,764 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-04 14:26:32,325 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-07 10:47:15,179 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-07 11:20:31,495 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-07 11:20:39,829 ERROR    ./user/views.py[line:67] 'username'
+2017-08-07 11:20:39,829 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 68, in logout
+    raise e
+  File "./user/views.py", line 65, in logout
+    del request.session['username']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'username'
+2017-08-07 11:22:30,310 ERROR    ./user/views.py[line:67] 'username'
+2017-08-07 11:22:30,310 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 68, in logout
+    raise e
+  File "./user/views.py", line 65, in logout
+    del request.session['username']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'username'
+2017-08-07 11:22:39,591 ERROR    ./user/views.py[line:67] 'username'
+2017-08-07 11:22:39,591 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 68, in logout
+    raise e
+  File "./user/views.py", line 65, in logout
+    del request.session['username']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'username'
+2017-08-07 11:22:59,956 ERROR    ./user/views.py[line:67] 'username'
+2017-08-07 11:22:59,956 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 68, in logout
+    raise e
+  File "./user/views.py", line 65, in logout
+    del request.session['username']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'username'
+2017-08-07 11:23:04,546 ERROR    ./user/views.py[line:67] 'username'
+2017-08-07 11:23:04,547 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 68, in logout
+    raise e
+  File "./user/views.py", line 65, in logout
+    del request.session['username']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'username'
+2017-08-07 11:24:20,488 ERROR    ./user/views.py[line:67] 'username'
+2017-08-07 11:24:20,489 ERROR    /usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py[line:135] Internal Server Error: /logout/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./user/views.py", line 68, in logout
+    raise e
+  File "./user/views.py", line 65, in logout
+    del request.session['username']
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 64, in __delitem__
+    del self._session[key]
+KeyError: 'username'
+2017-08-07 12:10:34,879 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-07 15:32:39,397 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-08 09:17:22,630 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-09 08:15:49,052 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-09 09:57:34,652 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-09 14:18:37,462 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-09 14:43:21,022 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-10 13:55:37,322 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
+2017-08-10 17:37:14,233 WARNING  /usr/local/lib/python3.6/site-packages/django/core/handlers/base.py[line:152] Not Found: /favicon.ico
