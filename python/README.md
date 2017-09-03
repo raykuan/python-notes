@@ -1,8 +1,8 @@
-# django notes records django learning journey
+# Python notes records magic method
 
 # 目录
-* [django内置user用户认证](./auth.md)
-* [django内置admin后台管理](./admin.md)
-* [django路由URL分配](./urls.md)
-
+* [reflect反射机制](./reflect.md)
+* [装饰器](./decorator.md)
+* [元类](./metaclass.md)
+* [asyncio异步IO](./asyncio.md)
 
