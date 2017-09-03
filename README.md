@@ -10,5 +10,3 @@
 
 * [Celery](./celery/README.md)
 
-* [mine_pros](./mine_pros/README.md)
-
