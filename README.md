@@ -1,16 +1,14 @@
-# 此目录下包括如下几个技术栈的子文件夹
+### 目录
 
-### Python
+* [Python](./python/README.md)
 
-### Django
 * [Django](./django/README.md)
 
-### Django REST framework
+* [Django REST framework](./django_rest/README.md)
 
-### scrapy
+* [Scrapy](./scrapy/README.md)
 
-### celery
+* [Celery](./celery/README.md)
 
-### mine_pro(已完成或进行中的项目)
-
+* [mine_pro](./mine_pro/README.md)
 
