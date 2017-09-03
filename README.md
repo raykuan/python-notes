@@ -1,2 +1,13 @@
-# python_notes
-python, django and rest
+# 此目录下包括如下几个技术栈的子文件夹
+
+### Python
+
+### Django
+
+### Django REST framework
+
+### scrapy
+
+### celery
+
+
