@@ -3,6 +3,7 @@
 ### Python
 
 ### Django
+* [Django](./django/README.md)
 
 ### Django REST framework
 
