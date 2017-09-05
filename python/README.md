@@ -5,4 +5,5 @@
 * [装饰器](./decorator.md)
 * [元类](./metaclass.md)
 * [asyncio异步IO](./asyncio.md)
+* [加密算法](./encrypt.md)
 
