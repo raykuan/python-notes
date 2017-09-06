@@ -1,21 +1,22 @@
 ### python3内置的urllib有五个的部分：
-urllib.parse <br>
-urllib.request <br>
-urllib.resopnse <br>
-urllib.error <br>
-urllib.robotparser <br>
-
-### 常用的主要是parse、request、error
-
 #### urllib.parse
+#### urllib.request
+#### urllib.resopnse
+#### urllib.error
+#### urllib.robotparser
+#### 常用的主要是parse、request、error
+
+### urllib.parse
+#### urllib.parse.urlparse
 ```
-********urllib.parse.urlparse********
 >>> url = r'https://docs.python.org/3.5/search.html?q=parse&check_keywords=yes&area=default'
 >>> parseResult = urllib.parse.urlparse(url)
 >>> parseResult
 ParseResult(scheme='https', netloc='docs.python.org', path='/3.5/search.html', params='', query='q=parse&check_keywords=yes&area=default', fragment='')
+```
 
-********urllib.parse.parse_qs********
+#### urllib.parse.parse_qs
+```
 >>> param_dict = urllib.parse.parse_qs(parseResult.query)
 >>> param_dict
 {'q': ['parse'], 'check_keywords': ['yes'], 'area': ['default']}
@@ -25,8 +26,10 @@ ParseResult(scheme='https', netloc='docs.python.org', path='/3.5/search.html', p
 #注意：加号会被解码，可能有时并不是我们想要的
 >>> urllib.parse.parse_qs('proxy=183.222.102.178:8080&task=XXXXX|5-3+2')
 {'proxy': ['183.222.102.178:8080'], 'task': ['XXXXX|5-3 2']}
+```
 
-********urllib.parse.urlencode********
+#### urllib.parse.urlencode
+```
 >>> query = {
   'name': 'walker',
   'age': 99,
@@ -34,23 +37,27 @@ ParseResult(scheme='https', netloc='docs.python.org', path='/3.5/search.html', p
   }
 >>> urllib.parse.urlencode(query)
 'name=walker&age=99&email=rayk@qq.com'
+```
 
-********urllib.parse.quote/quote_plus********
+#### urllib.parse.quote/quote_plus
+```
 >>> urllib.parse.quote('a&b/c')  #不编码斜线
 'a%26b/c'
 >>> urllib.parse.quote_plus('a&b/c')  #编码斜线
 'a%26b%2Fc'
+```
 
-********urllib.parse.unquote/unquote_plus********
+#### urllib.parse.unquote/unquote_plus
+```
 >>> urllib.parse.unquote('1+2')  #不解码加号
 '1+2'
 >>> urllib.parse.unquote_plus('1+2')  #把加号解码为空格
 '1 2'
 ```
 
-#### urllib.request
+### urllib.request
+#### urllib.request.urlopne
 ```
-********urllib.request.urlopne********
 urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)
 url：需要打开的网址
 data：Post提交的数据
@@ -76,8 +83,9 @@ geturl()：返回请求的url
 >>> req = urllib.request.Request(url, headers=headers, data=data)
 >>> page = urllib.request.urlopen(req).read()
 >>> page = page.decode('utf-8')
-
-********urllib.request.Request********
+```
+#### urllib.request.Request
+```
 urllib.request.Request(url, data=None, headers={}, method=None)
 先用request()来包装请求，再通过urlopen()获取页面
 
@@ -98,7 +106,7 @@ Connection：表示连接状态，记录Session的状态。
 Authorization：表示授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中
 ```
 
-#### urllib.error
+### urllib.error
 ```
 import urllib.parse
 import urllib.request
