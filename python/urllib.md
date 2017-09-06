@@ -49,28 +49,84 @@ ParseResult(scheme='https', netloc='docs.python.org', path='/3.5/search.html', p
 ```
 
 #### urllib.request
-```
-1. urllib.request.Request
-```
 
-2. urllib.request.urlopne
+1. urllib.request.urlopne
 ```
 urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)
 url：需要打开的网址
-dataPost：提交的数据
+data：Post提交的数据
 timeout：设置网站的访问超时时间
-urlopen返回对象提供方法：
-read() , readline() ,readlines() , fileno() , close() #对HTTPResponse类型数据进行操作
+
+>>> response = urllib.request.urlopen(r'http://python.org/')  #<http.client.HTTPResponse object at 0x048BC908> HTTPResponse类型
+>>> page = response.read()  #page的数据格式为bytes类型，需要decode()解码，转换成str类型
+>>> page = page.decode('utf-8')
+
+urlopen返回的是一个对象实例，有如下方法：
+read(), readline(), readlines(), fileno(), close()  #对HTTPResponse类型数据进行操作
 info()：返回HTTPMessage对象，表示远程服务器返回的头信息
 getcode()：返回Http状态码，如果是http请求是200、、400、404等
 geturl()：返回请求的url
 
->>> response = request.urlopen(r'http://python.org/') # <http.client.HTTPResponse object at 0x00000000048BC908> HTTPResponse类型
->>> page = response.read()
+当data参数不为空的时候，urlopen()提交方式为Post
+>>> data = {
+  'name': 'walker',
+  'age': 99,
+  'email': rayk@qq.com,
+  }
+>>> data = urllib.parse.urlencode(data).encode('utf-8')  #先对data做urlencode操作
+>>> req = urllib.request.Request(url, headers=headers, data=data)
+>>> page = urllib.request.urlopen(req).read()
 >>> page = page.decode('utf-8')
 ```
 
+2. urllib.request.Request
+```
+urllib.request.Request(url, data=None, headers={}, method=None)
+先用request()来包装请求，再通过urlopen()获取页面
+
+>>> url = r'http://www.python.org/Python/?labelWords=label'
+>>> headers = {
+    'User-Agent': r'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) 
+    'Referer': r'http://www.lagou.com/zhaopin/Python/?labelWords=label',
+    'Connection': 'keep-alive'
+    'Authorization': 'Token 473cfacf14f1e6aace79cfd0339d45cff44b5bb2'
+}
+>>> req = urllib.request.Request(url, headers=headers)
+>>> page = urllib.request.urlopen(req).read()
+>>> page = page.decode('utf-8')
+
+User-Agent ：这个头部可以携带如下几条信息：浏览器名和版本号、操作系统名和版本号、默认语言
+Referer：可以用来防止盗链，有一些网站图片显示来源http://***.com，就是检查Referer来鉴定的
+Connection：表示连接状态，记录Session的状态。
+Authorization：表示授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中
+```
 
 
+#### urllib.error
+
+```
+def get_page(url):
+    headers = {
+        'User-Agent': r'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36',
+        'Referer': r'http://www.python.org/Python/?labelWords=label',
+        'Connection': 'keep-alive'
+    }
+
+    data = {
+        'timestamp': str(time.time()).split('.')[0],
+        'device_sn': 'rrkksn-123',
+        'device_type': 'Mozila 6.5',
+        'random_num': 'random',
+    }
+
+    data = urllib.parse.urlencode(data).encode('utf-8')
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        page = urllib.request.urlopen(req, data=data).read()
+        page = page.decode('utf-8')
+    except urllib.error.HTTPError as e:
+        print(e.code())
+        print(e.read().decode('utf-8'))
+    return page
 ```
 
