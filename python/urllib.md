@@ -1,12 +1,12 @@
-### python3内置的urllib有五个的部分：
+## python3内置的urllib有五个的部分,常用的主要是parse、request、error：
 #### urllib.parse
 #### urllib.request
 #### urllib.resopnse
 #### urllib.error
 #### urllib.robotparser
-#### 常用的主要是parse、request、error
 
-### urllib.parse
+
+## urllib.parse
 #### urllib.parse.urlparse
 ```
 >>> url = r'https://docs.python.org/3.5/search.html?q=parse&check_keywords=yes&area=default'
@@ -55,7 +55,7 @@ ParseResult(scheme='https', netloc='docs.python.org', path='/3.5/search.html', p
 '1 2'
 ```
 
-### urllib.request
+## urllib.request
 #### urllib.request.urlopne
 ```
 urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)
@@ -106,7 +106,7 @@ Connection：表示连接状态，记录Session的状态。
 Authorization：表示授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中
 ```
 
-### urllib.error
+## urllib.error
 ```
 import urllib.parse
 import urllib.request
