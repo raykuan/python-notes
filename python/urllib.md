@@ -53,17 +53,24 @@ ParseResult(scheme='https', netloc='docs.python.org', path='/3.5/search.html', p
 1. urllib.request.Request
 ```
 
-```
-
 2. urllib.request.urlopne
 ```
 urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)
-url:  需要打开的网址
-data：Post提交的数据
+url：需要打开的网址
+dataPost：提交的数据
 timeout：设置网站的访问超时时间
+urlopen返回对象提供方法：
+read() , readline() ,readlines() , fileno() , close() #对HTTPResponse类型数据进行操作
+info()：返回HTTPMessage对象，表示远程服务器返回的头信息
+getcode()：返回Http状态码，如果是http请求是200、、400、404等
+geturl()：返回请求的url
 
 >>> response = request.urlopen(r'http://python.org/') # <http.client.HTTPResponse object at 0x00000000048BC908> HTTPResponse类型
 >>> page = response.read()
 >>> page = page.decode('utf-8')
+```
+
+
+
 ```
 
