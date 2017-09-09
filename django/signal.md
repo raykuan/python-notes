@@ -1,13 +1,13 @@
 ### django内置的signal
 ```
 Model signals
-    pre_init                    #django的modal执行其构造方法前，自动触发
-    post_init                   #django的modal执行其构造方法后，自动触发
-    pre_save                    #django的modal对象保存前，自动触发
-    post_save                   #django的modal对象保存后，自动触发
-    pre_delete                  #django的modal对象删除前，自动触发
-    post_delete                 #django的modal对象删除后，自动触发
-    m2m_changed                 #django的modal中使用m2m字段操作第三张表（add,remove,clear）前后，自动触发
+    pre_init                    #django的model执行其构造方法前，自动触发
+    post_init                   #django的model执行其构造方法后，自动触发
+    pre_save                    #django的model对象保存前，自动触发
+    post_save                   #django的model对象保存后，自动触发
+    pre_delete                  #django的model对象删除前，自动触发
+    post_delete                 #django的model对象删除后，自动触发
+    m2m_changed                 #django的model中使用m2m字段操作第三张表（add,remove,clear）前后，自动触发
     class_prepared              #程序启动时，检测已注册的app中modal类，对于每一个类，自动触发
 
 Management signals
@@ -125,6 +125,7 @@ def send_sms_code(sender, instance, *args, **kwargs):
         instance.save()
 
 post_save.connect(send_sms_code, sender=SmsCode)
+
 
 在view中如果对调用实例的save方法，同样可以使用上面的setattr属性防止重复执行
 def sms_validate(self, request, sms_type):
