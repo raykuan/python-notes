@@ -9,16 +9,20 @@ Model signals
     post_delete                 #django的modal对象删除后，自动触发
     m2m_changed                 #django的modal中使用m2m字段操作第三张表（add,remove,clear）前后，自动触发
     class_prepared              #程序启动时，检测已注册的app中modal类，对于每一个类，自动触发
+
 Management signals
     pre_migrate                 #执行migrate命令前，自动触发
     post_migrate                #执行migrate命令后，自动触发
+
 Request/response signals
     request_started             #请求到来前，自动触发
     request_finished            #请求结束后，自动触发
     got_request_exception       #请求异常后，自动触发
+
 Test signals
     setting_changed             #使用test测试修改配置文件时，自动触发
     template_rendered           #使用test测试渲染模板时，自动触发
+
 Database Wrappers
     connection_created          #创建数据库连接时，自动触发
 ```
