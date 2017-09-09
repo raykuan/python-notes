@@ -2,8 +2,8 @@
 
 #### model常用字段类型
 ```
-1、AutoField(Field)  # int自增列，必须填入参数primary_key=True
-注：当model中如果没有自增列，则自动会创建一个列名为id的列
+1、AutoField(Field)
+# int自增列，必须填入参数primary_key=True, 当model中如果没有自增列，则自动会创建一个列名为id的列
 AutoField示例：
 class UserInfo(models.Model):
     # 此处设置了AutoField必须指定为primary_key，model就不会创建名为id的列
@@ -11,10 +11,10 @@ class UserInfo(models.Model):
     username = models.CharField(max_length=32)
 
 
-2、DateTimeField(DateField)  # 日期+时间格式 YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]
-注：DateTimeField和Django中timezone.now()的类型都为datetime.datetime可以直接比较大小，差值为datetime.timedelta类型
-DateTimeField示例：
-在Django中经常要对ORM中取出的时间进行比较
+2、DateTimeField(DateField)
+# 日期+时间格式 YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]
+# DateTimeField和Django中timezone.now()的类型都为datetime.datetime可以直接比较大小，差值为datetime.timedelta类型
+DateTimeField示例：在Django中经常要对ORM中取出的时间进行比较
 from django.utils import timezone
 from datetime import datetime
 # timedelta支持的参数类型
@@ -35,7 +35,7 @@ null是针对数据库而言，如果null=True, 表示数据库的该字段可�
 blank是针对表单的，如果blank=True，表示你的表单填写该字段的时候可以不填
 
 3、default
-default=uuid.uuid4或者default=some_func, 注意后面没有括号，表示在插入一条数据时，调用此函数
+default=uuid.uuid4或者default=get_value, 注意后面没有括号，表示在插入一条数据时，调用此函数
 
 4、unique=True
 数据库中字段建立唯一索引
