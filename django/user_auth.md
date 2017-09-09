@@ -71,9 +71,7 @@ class Profile(models.Model):
 可见，当要查询某个用户的Profile时，需要执行额外的跨表查询操作，所以这种方式比起直接继承 AbstractUser 效率更低一点。
 因此对于新项目来说，优先推荐使用继承 AbstractUser 的方式来拓展用户模型。
 PS：如果你使用了Profile模式，你可能希望在创建User对象的时候同时也创建与之关联的Profile对象。你可以使用 Django 的 Signal 实现这个需求。
-
 ```
-
 
 ### 自定义认证后台
 ```
