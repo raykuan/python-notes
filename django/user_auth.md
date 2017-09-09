@@ -33,7 +33,7 @@ last_name，姓
 好在 Django 用户系统遵循可拓展的设计原则，我们可以方便地拓展 User 模型。
 
 1、继承AbstractUser拓展用户模型
-这是推荐做法，查看User模型的源码就知道，User也是继承自AbstractUser抽象基类，而且仅仅就是继承了AbstractUser，没有对AbstractUser做任何的拓展。
+这是推荐做法，查看User的源码就知道，User也是继承自AbstractUser抽象基类，仅仅就是继承了AbstractUser，没有做任何的拓展。
 **users/models.py
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -56,7 +56,7 @@ AUTH_USER_MODEL = 'users.User'
 
 2、使用Profile模式拓展用户模型
 如果想为一个已使用了Django内置User模型的项目拓展用户模型，上述继承AbstractUser的拓展方式会变得有点麻烦。
-Django 没有提供一套自动化的方式将内置的User迁移到自定义的用户模型，因为Django已经为内置的User模型生成了相关数据库迁移文件和数据库表。
+Django没有提供一套自动化的方式将内置User迁移到自定义的用户模型，因为Django已经为内置的User模型生成了数据库迁移文件和数据库表。
 如果非要这么做的话，需要手工修改迁移文件和数据库表，并且移动数据库中相关的用户数据。
 所以我们采用另一种不改动数据库表的方式来拓展用户模型，具体来说，我们在创建一个模型（通常命名为Profile）来记录用户相关的数据，
 然后使用一对一的方式将这个Profile模型和User关联起来，就好像每个用户都关联着一张记录个人资料的表一样。代码如下：
@@ -70,7 +70,7 @@ class Profile(models.Model):
 而 Profile 这种模式有两张表，一张是User模型对应的表，一张是Profile模型对应的表，两张表通过一对一的关系关联。
 可见，当要查询某个用户的Profile时，需要执行额外的跨表查询操作，所以这种方式比起直接继承 AbstractUser 效率更低一点。
 因此对于新项目来说，优先推荐使用继承 AbstractUser 的方式来拓展用户模型。
-PS：如果你使用了Profile模式，你可能希望在创建User对象的时候同时也创建与之关联的Profile对象。你可以使用 Django 的 Signal 实现这个需求。
+PS：如果你使用了Profile模式，你希望在创建User对象的时候同时也创建与之关联的Profile对象，可以使用Django的Signal实现这个需求。
 ```
 
 ### 自定义认证后台
@@ -136,7 +136,7 @@ class EmailBackend(object):
             return User.objects.get(pk=user_id)
         except User.DoesNotExist:
             return None
-根据用户提供的 Email 和密码，检查该 emai 对应的用户是否存在，如果存在则检查密码是否正确，如果密码也没有问题，则返回该user对象。
+根据用户提供的Email和密码，检查该emai对应的用户是否存在，如果存在则检查密码是否正确，如果密码也没有问题，则返回该user对象。
 
 3、配置Backend
 接下来就要告诉 Django，需要使用哪些 Backends 对用户的凭据信息进行验证，这需要在 settings.py 中设置：
