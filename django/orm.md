@@ -4,7 +4,7 @@
 ```
 1、AutoField(Field)
 # int自增列，必须填入参数primary_key=True, 当model中如果没有自增列，则自动会创建一个列名为id的列
-AutoField示例：
+# AutoField示例：
 class UserInfo(models.Model):
     # 此处设置了AutoField必须指定为primary_key，model就不会创建名为id的列
     nid = models.AutoField(primary_key=True) 
@@ -14,14 +14,16 @@ class UserInfo(models.Model):
 2、DateTimeField(DateField)
 # 日期+时间格式 YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]
 # DateTimeField和Django中timezone.now()的类型都为datetime.datetime可以直接比较大小，差值为datetime.timedelta类型
-DateTimeField示例：在Django中经常要对ORM中取出的时间进行比较
+# DateTimeField示例：在Django中经常要对ORM中取出的时间进行比较
+# timedelta支持的参数类型: timedelta(days=999999999, hours=23, minutes=59, seconds=59, microseconds=999999)
 from django.utils import timezone
 from datetime import datetime
-# timedelta支持的参数类型
-timedelta(days=999999999, hours=23, minutes=59, seconds=59, microseconds=999999)
-obj = User.object..get(id=1)
+class Bills(models.Model):
+    biz = models.CharField(max_length=64, default=uuid.uuid4)
+    ctime = models.DateTimeField(auto_now_add=True)
+obj = Bills.object.get(id=1)
 now = timezone.now()
-differ = now - obj.create_time  # 获取时间差对象(datetime.timedelta类型)
+differ = now - obj.ctime  # 获取时间差对象(datetime.timedelta类型)
 nextDay = now + timedelta(days=1)  # 增加一天后的时间(datetime.datetime类型)  
 nextSecond = now + timedelta(minutes=10, seconds=10)  # 增加十分钟十秒后的时间 (datetime.datetime类型)
 ```
