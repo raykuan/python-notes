@@ -110,7 +110,7 @@ class ModelBackend(object):
 
 2、Email Backend
 在本示例项目中，用户注册时需要填写邮箱，。
-因为Django auth应用内置只支持用户名和密码的认证方式，所以目前用户是无法使用 Email 进行登录的。为了实现邮箱登录，需要编写一个认证后台。
+因为Django auth应用内置只支持用户名和密码的认证方式，所以是无法使用Email进行登录的,为了实现邮箱登录需要编写一个认证后台。
 这个后台的作用便是验证用户提供的凭据（这里是邮箱以及密码）是合法的，完全仿照内置的 ModelBackend 代码即可。
 首先在 users 应用下新建一个 backends.py 文件，然后写入如下代码：
 users/backends.py
@@ -149,7 +149,7 @@ AUTHENTICATION_BACKENDS = (
 第一个Backend是Django 内置的 Backend，当用户提供的是用户名和正确的密码时该Backend会通过验证；
 第二个 Backend 是刚刚自定义的 Backend，当用户提供的是 Email 和正确的密码时该 Backend 会通过验证。
 
-备注
+4、备注
 因为django内置的User model定义时email默认可以重复，考虑到难以修改 model 的定义，且不是一个好方法。
 我们可以通过复写表单的验证方法（例如 clean_email）来验证email的唯一性，具体请参考 django 关于 form 数据验证的文档。
 
