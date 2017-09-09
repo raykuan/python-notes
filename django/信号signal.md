@@ -79,3 +79,60 @@ from 路径 import pizza_done
  
 pizza_done.send(sender='seven',toppings=123, size=456)
 ```
+
+### 示例
+```
+class SmsCode(models.Model):
+    SMS_TYPE_CHOINCES = ((1, '注册'), (2, '忘记密码'),)
+    SEND_STATUS_CHOINCES = ((1, '发送成功'),(2, '发送失败'),)
+
+    sms_type = models.IntegerField('验证码类型', choices=SMS_TYPE_CHOINCES)
+    mobile = models.CharField('手机号', max_length=11)
+    device_sn = models.CharField('设备序列号', max_length=64)
+    sms_code = models.CharField('验证码', max_length=6, default=get_sms_code)
+    send_status = models.IntegerField('发送状态', choices=SEND_STATUS_CHOINCES, default=1)
+    used = models.BooleanField('是否被使用', default=False)
+    create_time = models.DateTimeField('创建时间', auto_now_add=True)
+    expire_time = models.DateTimeField('过期时间', null=True)
+
+    class Meta:
+        verbose_name = '手机验证码'
+        verbose_name_plural = verbose_name
+        db_table = "wiseu_smscode"
+
+    def save(self, *args, **kwargs):
+        self.create_time = timezone.now()
+        self.expire_time = self.create_time + datetime.timedelta(0, 300)
+        super(SmsCode, self).save(*args, **kwargs)
+
+
+def send_sms_code(sender, instance, *args, **kwargs):
+    # 如果当前实例_disable_post_save的属性是True就不执行post_save
+    # 防止后面的instance.save()执行时陷入循环调用
+    if getattr(instance, '_disable_post_save', False) is True:
+        return
+    res = smsapi.send_sms_ali(instance.mobile, instance.sms_code)
+    if res != 1:
+        log.error("%s短信发送失败：%s" % (instance.mobile, res))
+        print("%s短信发送失败：%s" % (instance.mobile, res))
+        instance.send_status = 2
+        # 修改短信发送状态之后把当前实例_disable_post_save = True
+        setattr(instance, '_disable_post_save', True)
+        instance.save()
+
+post_save.connect(send_sms_code, sender=SmsCode)
+
+在view中如果对调用实例的save方法，同样可以使用上面的setattr属性防止重复执行
+def sms_validate(self, request, sms_type):
+       sms_serializer = SmsRetrieveSerializer(data=request.data)
+       sms_serializer.is_valid(raise_exception=True)
+       sms_code = SmsCode.objects.filter(
+           mobile=request.data.get('mobile'), sms_code=request.data.get('sms_code'), sms_type=sms_type).last()
+       # import ipdb; ipdb.set_trace()
+       if not sms_code:
+           raise exceptions.ValidationError({'mobile': ['手机号或验证码错误']})
+       sms_code.used = True
+       # 设置当前实例_disable_post_save属性为True防止save的时间触发post_save
+       sms_code._disable_post_save = True
+       sms_code.save()
+```
