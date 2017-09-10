@@ -39,7 +39,7 @@ template:{% load static %}或<link rel="stylesheet" href="/static/css/customstyl
 默认情况下Django只会去每个APP的static目录找静态文件，如果想在别的地方设置静态文件目录就需要添加在此处
 
 # STATIC_ROOT是静态文件的总目录
-执行manage.py collectstatic会把所有APP下static目录和STATICFILES_DIRS自定义目录的静态文件都拷贝到STATIC_ROOT目录中
+执行manage.py collectstatic会自动把所有APP下static目录和STATICFILES_DIRS自定义目录的静态文件都拷贝到此目录中
 ```
 
 
@@ -52,5 +52,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "project/media")
 URL：https://github.com/raykuan/media/log20170909.log
 
 # MEDIA_ROOT是media文件的存放目录
-如MEDIA_ROOT=/data/media，那么File=models.FileField(upload_to="images/")，上传的文件就会被保存到/data/media/images/目录下
+如果 MEDIA_ROOT=/data/media，那么File=models.FileField(upload_to="images/")
+那么 上传的文件就会被保存到/data/media/images/目录下
 ```
