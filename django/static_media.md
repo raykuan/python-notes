@@ -52,6 +52,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "project/media")
 URL：https://github.com/raykuan/media/log20170909.log
 
 # MEDIA_ROOT是media文件的存放目录
-如果 MEDIA_ROOT=/data/media，那么File=models.FileField(upload_to="images/")
-那么 上传的文件就会被保存到/data/media/images/目录下
+如果MEDIA_ROOT=/data/media，那么File=models.FileField(upload_to="images/")
+则上传的文件就会被保存到/data/media/images/目录下
 ```
