@@ -56,7 +56,8 @@ auto_now=True  # 更新一条数据时，更新时间
 
 #### model外键
 ```
-
+外键：在某表中创建一行数据时，通过外键指定主表中关联的字段，来表明两个表之间的关系
+例如：登录流水表中有一个user字段外键关联user表，user = ForeignKey(User_model), 字段赋值时应是user的实例
 ```
 
 #### model索引
@@ -66,8 +67,9 @@ auto_now=True  # 更新一条数据时，更新时间
 
 #### model一对一
 ```
-一对一：在某表中创建一行数据时，如果有就不创建，没有就创建，get_or_created
-例如：django rest的token里面就使用的onetoonefield，实现一个user只能有一个token
+一对一：在某表中创建一行数据时，要保证一对一的对应关系，如果有就不创建，没有就创建，get_or_created
+例如：user表和token表使用OneToOneField，实现一个user只能有一条唯一的token记录
+备注：一对一和外键的关系类似于OneToOneField = ForeignKey(model, unique=True), OneToOneField约束更严格
 ```
 
 #### model一对多
