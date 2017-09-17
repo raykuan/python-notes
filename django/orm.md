@@ -84,3 +84,7 @@ auto_now=True  # 更新一条数据时，更新时间
 例如：创建用户信息，需要为用户指定多个爱好
 ```
 
+#### select_related和prefetch_related
+```
+select_related和prefetch_related都是解决有外键的情况下减少连表查询次数，提高查询性能
+```
