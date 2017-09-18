@@ -7,5 +7,5 @@
 * [生成器](./decorator.md)
 * [元类和魔术方法](./metaclass.md)
 * [asyncio异步IO](./asyncio.md)
-* [加密算法](./encrypt.md)
+* [常见加密算法](./encrypt.md)
 
