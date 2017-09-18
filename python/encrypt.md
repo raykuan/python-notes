@@ -1,4 +1,4 @@
-## Base64
+## Base64内置模块
 ```
 确切的讲Base64不能作为加密算法。Base64是一种用64个字符来表示任意二进制数据的方法。
 1、Base64使用包含A-Z、a-z、0-9和加号“+”，斜杠“/” 一共64个字符['A'...'Z', 'a'...'z', '0'...'9', ... '+', '/']
@@ -19,28 +19,39 @@ Base64编码会把每3字节的二进制数据编码为4字节的文本数据，
 urlencode除了(-)和(_)之外的所有非字母数字字符都将被替换成百分号(%)后跟两位十六进制。
 
 例子1：
->>>: s = 'bye'
->>>: b = base64.b64encode(s.encode())
->>>: b
->>>: b'Ynll'
+>>> s = 'bye'
+>>> b = base64.b64encode(s.encode())
+>>> b
+>>> b'Ynll'
 
 例子2：
->>>: s = 'b'
->>>: b = base64.b64encode(s.encode())
->>>: b
->>>: b'Yg=='
+>>> s = 'b'
+>>> b = base64.b64encode(s.encode())
+>>> b
+>>> b'Yg=='
+由于=字符也可能出现在Base64编码中，但=用在URL、Cookie里面会造成歧义，所以，很多Base64编码后会把=去掉：
+# 标准Base64: 'abcd' -> 'YWJjZA=='
+# 自动去掉=号: 'abcd' -> 'YWJjZA'
 
 例子3：
->>>: s = '世界，你好'
->>>: b = s.encode()
->>>: b
->>>: b'\xe4\xb8\x96\xe7\x95\x8c\xef\xbc\x8c\xe4\xbd\xa0\xe5\xa5\xbd'
->>>: e = base64.b64encode(b)
->>>: e
->>>: b'5LiW55WM77yM5L2g5aW9'
->>>: c = base64.b64decode(e)
->>>: c
->>>: b'\xe4\xb8\x96\xe7\x95\x8c\xef\xbc\x8c\xe4\xbd\xa0\xe5\xa5\xbd'
+>>> s = '世界，你好'
+>>> b = s.encode()
+>>> b
+>>> b'\xe4\xb8\x96\xe7\x95\x8c\xef\xbc\x8c\xe4\xbd\xa0\xe5\xa5\xbd'
+>>> e = base64.b64encode(b)
+>>> e
+>>> b'5LiW55WM77yM5L2g5aW9'
+>>> c = base64.b64decode(e)
+>>> c
+>>> b'\xe4\xb8\x96\xe7\x95\x8c\xef\xbc\x8c\xe4\xbd\xa0\xe5\xa5\xbd'
+
+例子4：
+>>> base64.b64encode(b'i\xb7\x1d\xfb\xef\xff')
+>>> b'abcd++//'
+>>> base64.urlsafe_b64encode(b'i\xb7\x1d\xfb\xef\xff')
+>>> b'abcd--__'
+>>> base64.urlsafe_b64decode('abcd--__')
+>>> b'i\xb7\x1d\xfb\xef\xff'
 
 ```
 ## hashlib内置模块
