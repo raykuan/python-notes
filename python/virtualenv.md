@@ -3,8 +3,6 @@
 #### Linux环境：
 ```
 1 先装好python环境，同时安装py2和py3两个版本，默认版本是Linux自带的py2
-[root@host ~]# which python
-/usr/bin/python
 [root@host ~]# which python2
 /usr/bin/python2
 [root@host ~]# which python3
