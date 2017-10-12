@@ -20,12 +20,6 @@
 [root@host ~]# cd env
 [root@host env]# virtualenv pyenv01
 [root@host env]# cd pyenv01/
-[root@host pyenv01]# ll
-total 4
-drwxr-xr-x. 2 root root 248 Oct 12 11:45 bin
-drwxr-xr-x. 2 root root  24 Oct 12 11:45 include
-drwxr-xr-x. 3 root root  23 Oct 12 11:45 lib
--rw-r--r--. 1 root root  60 Oct 12 11:45 pip-selfcheck.json
 
 4 进入python虚拟环境
 [root@host pyenv01]# source bin/activate
@@ -53,3 +47,4 @@ wsgiref (0.1.2)
 5 执行activate.bat(cmd下)，或source activate(git cmd下)进入虚拟环境
 6 执行deactivate退出虚拟环境
 ```
+
