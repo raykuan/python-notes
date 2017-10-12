@@ -1,10 +1,11 @@
 ## python3内置的urllib有五个的部分,常用的主要是parse、request、error：
-#### urllib.parse
-#### urllib.request
-#### urllib.resopnse
-#### urllib.error
-#### urllib.robotparser
-
+```
+urllib.parse
+urllib.request
+urllib.resopnse
+urllib.error
+urllib.robotparser
+```
 
 ## urllib.parse
 #### urllib.parse.urlparse
