@@ -1,6 +1,7 @@
 # Python notes records magic method
 
 # 目录
+* [windows pip包http://www.lfd.uci.edu/~gohlke/pythonlibs/]
 * [virtualenv虚拟环境](./virtualenv.md)
 * [urllib模块](./urllib.md)
 * [reflect反射](./reflect.md)
