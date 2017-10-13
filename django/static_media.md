@@ -55,3 +55,19 @@ URL：https://github.com/raykuan/media/log20170909.log
 如果MEDIA_ROOT=/data/media，那么File=models.FileField(upload_to="images/")
 则上传的文件就会被保存到/data/media/images/目录下
 ```
+#### django路由url.py中media配置
+```
+from django.conf.urls import url
+from django.contrib import admin
+from clamgt.settings import MEDIA_ROOT  # 导入MEDIA_ROOT变量
+from django.views.static import serve   # 导入serve
+from datacenter import views
+
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),  # 固定写法
+    url(r'^view/(?P<template_name>.*)$', views.HTMLView, name='in'),
+    url(r'^report/$', views.ClamReportListCreateAPIView.as_view(), name='report'),
+]
+```
