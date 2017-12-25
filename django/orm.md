@@ -58,14 +58,11 @@ auto_now=True  # 更新一条数据时，更新时间
 
 9、related_name
 存在外键或多对多关系的表中使用related_name自定义反向查询的字段名，默认是model_set
-例如：
-#  角色表
-class Menus(models.Model):
-    # 此菜单表也可以理解成权限表
+看如下例子：
+
+class Menus(models.Model):  # 权限表
     url = models.CharField(max_length=128)  # 每个url可以当做一个权限
     title = models.CharField(max_length=50)
-    menu_desc = models.CharField(max_length=100, null=True, blank=True)
-    is_virtual = models.BooleanField(default=False)
     parent = models.ForeignKey('self', null=True, blank=True)   # 自关联
 
     def __str__(self):
@@ -76,8 +73,8 @@ class Menus(models.Model):
         verbose_name = '菜单列表'
         verbose_name_plural = '菜单列表'
         db_table = "u_menus"
-#  角色表
-class Roles(CommonInfo):
+
+class Roles(CommonInfo):  # 角色表
     role_name = models.CharField('角色名称', max_length=50, unique=True)
     role_desc = models.CharField('角色描述', max_length=100, blank=True, null=True)
     menus = models.ManyToManyField(Menus, verbose_name='菜单', through='RoleMenuRef', related_name='roles')
@@ -98,7 +95,8 @@ class Roles(CommonInfo):
 #### model外键
 ```
 外键：在某表中创建一行数据时，通过外键指定主表中关联的字段，来表明两个表之间的关系
-例如：登录流水表中有一个user字段外键关联user表，user = ForeignKey(User_model), 字段赋值时应是user的实例
+例如：登录流水表中有一个user字段外键关联user表，user = ForeignKey(user_model)
+注意：在对user字段赋值时应是user的实例， user = user_instacne
 ```
 
 #### model索引
