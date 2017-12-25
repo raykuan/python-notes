@@ -7,5 +7,5 @@
 * [django内置admin后台管理](./admin.md)
 * [django进阶ORM](./orm.md)
 * [django内置信号signal](./signal.md)
-
+* [菜单权限树形结构递归实现](./menu_recursive.md)
 
