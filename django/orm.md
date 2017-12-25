@@ -89,7 +89,9 @@ class Roles(CommonInfo):  # 角色表
         db_table = "u_roles"
 
 正向查找：Roles.Object.first().menus
-反向查找：Menus.Object.first().roles_set(), 如果指定related_name='roles'则使用Menus.Object.first().roles()
+反向查找：
+django默认是Menus.Object.first().roles_set()
+如果指定related_name='roles'则使用Menus.Object.first().roles()
 ```
 
 #### model外键
