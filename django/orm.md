@@ -52,6 +52,47 @@ models.IntegerField(choices=STATUS_CHOICES, default=1)
 7、DateTimeField
 auto_now_add=True  # 插入一条新数据时，创建时间
 auto_now=True  # 更新一条数据时，更新时间
+
+8、through
+使用through参数指定自定义关联表，可以添加关联字段外的其他字段
+
+9、related_name
+存在外键或多对多关系的表中使用related_name自定义反向查询的字段名，默认是model_set
+例如：
+#  角色表
+class Menus(models.Model):
+    # 此菜单表也可以理解成权限表
+    url = models.CharField(max_length=128)  # 每个url可以当做一个权限
+    title = models.CharField(max_length=50)
+    menu_desc = models.CharField(max_length=100, null=True, blank=True)
+    is_virtual = models.BooleanField(default=False)
+    parent = models.ForeignKey('self', null=True, blank=True)   # 自关联
+
+    def __str__(self):
+        return self.menu_desc
+
+    class Meta:
+        unique_together = ('parent', 'url')
+        verbose_name = '菜单列表'
+        verbose_name_plural = '菜单列表'
+        db_table = "u_menus"
+#  角色表
+class Roles(CommonInfo):
+    role_name = models.CharField('角色名称', max_length=50, unique=True)
+    role_desc = models.CharField('角色描述', max_length=100, blank=True, null=True)
+    menus = models.ManyToManyField(Menus, verbose_name='菜单', through='RoleMenuRef', related_name='roles')
+    # 角色和权限是多对多关系, 使用through参数指定自定义关联表，可以添加关联字段外的其他字段
+
+    def __str__(self):
+        return self.role_desc
+
+    class Meta:
+        verbose_name = '角色'
+        verbose_name_plural = '角色'
+        db_table = "u_roles"
+
+正向查找：Roles.Object.first().menus
+反向查找：Menus.Object.first().roles_set(), 如果指定related_name='roles'则使用Menus.Object.first().roles()
 ```
 
 #### model外键
@@ -62,26 +103,53 @@ auto_now=True  # 更新一条数据时，更新时间
 
 #### model索引
 ```
+1、唯一索引
+在model的某个字段中如果设置unique=True，则数据库中字段就会建立唯一索引
 
+2、联合索引
+class RoleMenuRef(models.Model):
+    role = models.ForeignKey(Roles, verbose_name='角色')
+    menu = models.ForeignKey(Menus, verbose_name='菜单权限')
+
+    class Meta:
+        unique_together = ('role', 'menu')    # 设置role和menu一起的联合索引，role和menu组合必须唯一
+        verbose_name = '角色菜单关系表'
+        verbose_name_plural = '角色菜单关系表'
+        db_table = "u_rolemenuref"
 ```
 
 #### model一对一
 ```
 一对一：在某表中创建一行数据时，要保证一对一的对应关系，如果有就不创建，没有就创建，get_or_created
 例如：user表和token表使用OneToOneField，实现一个user只能有一条唯一的token记录
-备注：一对一和外键的关系类似于OneToOneField = ForeignKey(model, unique=True), OneToOneField约束更严格
+描述：一对一和外键的关系类似于OneToOneField = ForeignKey(model, unique=True), OneToOneField约束更严格
+注意：在实际环境中尽量不要使用一对一的情况，除非没有办法要做表的拆分或者扩展
 ```
 
 #### model一对多
 ```
 一对多：当一张表中创建一行数据时，有一个单选的下拉框（可以被重复选择）
 例如：创建用户信息时候，需要选择一个用户类型【普通用户】【金牌用户】【铂金用户】等
+注意：从django 1.8开始OneToManyField被废弃，推荐使用ManyToManyField
 ```
 
 #### model多对多
 ```
 多对多：在某表中创建一行数据时，有一个可以多选的下拉框
 例如：创建用户信息，需要为用户指定多个爱好
+class Roles(CommonInfo):
+    role_name = models.CharField('角色名称', max_length=50, unique=True)
+    role_desc = models.CharField('角色描述', max_length=100, blank=True, null=True)
+    menus = models.ManyToManyField(Menus, verbose_name='菜单', through='RoleMenuRef', related_name='roles')
+    # 角色和权限是多对多关系, 使用through参数指定自定义关联表，可以添加关联字段外的其他字段
+
+    def __str__(self):
+        return self.role_desc
+
+    class Meta:
+        verbose_name = '角色'
+        verbose_name_plural = '角色'
+        db_table = "u_roles"
 ```
 
 #### select_related和prefetch_related
