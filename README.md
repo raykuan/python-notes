@@ -10,3 +10,4 @@
 
 * [Celery](./celery/README.md)
 
+* [uwsgi部署](./uwsgi/README.md)
