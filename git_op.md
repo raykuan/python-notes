@@ -13,7 +13,7 @@ git merge --no-ff dev_branch
 git tag -a v1.0 -m “commit version 1.0”
 
 2、push到远程仓库(打完tag之后，去push即可)
-git push origin –tags (push所有tag到远程仓库)
+git push origin --tags (push所有tag到远程仓库)
 
 3、删除tag便签
 git tag -d v1.0
