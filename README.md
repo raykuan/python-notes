@@ -10,4 +10,4 @@
 
 * [Celery](./celery/README.md)
 
-* [git常用操作](./git_op.md)
+* [Git常用操作](./git_op.md)
