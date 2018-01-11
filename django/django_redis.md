@@ -11,7 +11,7 @@ pip install django-redis
 CACHES = {
   'default': {
     'BACKEND': 'redis_cache.cache.RedisCache',
-    'LOCATION': '127.0.0.1:6379',
+    'LOCATION': 'redis://127.0.0.1:6379',
     'OPTIONS': {
       'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
     },
