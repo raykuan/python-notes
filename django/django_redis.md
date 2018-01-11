@@ -22,7 +22,7 @@ pip install django-redis
 redis-server /path/my_custom_redis.conf
 后台启动redis：nohup redis-server /path/6379.conf &
 
-redis.conf配置文件参见目录下的
+配置文件参见目录下的redis.conf文件
 ```
 
 #### 配置
