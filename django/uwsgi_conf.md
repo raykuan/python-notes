@@ -18,7 +18,7 @@ yum -y install openssl openssl-devel
 [msad@adapi adauth]$ tar -zxvf /home/msad/software/nginx-1.12.2.tar.gz -C /home/msad/
 
 如下配置中--with-openssl='第2步中openssl源码包解压目录'
-[msad@adapi adauth]$ ./configure--prefix=/home/msad/nginx --with-http_stub_status_module --with-http_ssl_module --with-openssl=/home/msad/openssl-1.0.2n
+[msad@adapi adauth]$ ./configure --prefix=/home/msad/nginx --with-http_stub_status_module --with-http_ssl_module --with-openssl=/home/msad/openssl-1.0.2n
 
 [msad@adapi adauth]$ make && make install
 ```
