@@ -34,7 +34,7 @@ nextSecond = now + timedelta(minutes=10, seconds=10)  # 增加十分钟十秒后
 null是针对数据库而言，如果null=True, 表示数据库的该字段可以为空
 
 2、blank=True
-blank是针对表单的，如果blank=True，表示你的表单填写该字段的时候可以不填
+blank是(针对表单)的，如果blank=True，表示你的表单填写该字段的时候可以不填
 
 3、default
 default=uuid.uuid4或者default=get_value, 注意后面没有括号，表示在插入一条数据时，调用此函数
@@ -77,7 +77,7 @@ class Menus(models.Model):  # 权限表
 class Roles(CommonInfo):  # 角色表
     role_name = models.CharField('角色名称', max_length=50, unique=True)
     role_desc = models.CharField('角色描述', max_length=100, blank=True, null=True)
-    menus = models.ManyToManyField(Menus, verbose_name='菜单', through='RoleMenuRef', related_name='roles')
+    menus = models.ManyToManyField(Menus, verbose_name='菜单', through='RoleMenuRel', related_name='roles')
     # 角色和权限是多对多关系, 使用through参数指定自定义关联表，可以添加关联字段外的其他字段
 
     def __str__(self):
@@ -88,10 +88,15 @@ class Roles(CommonInfo):  # 角色表
         verbose_name_plural = '角色'
         db_table = "u_roles"
 
-正向查找：Roles.Object.first().menus
-反向查找：
-django默认是Menus.Object.first().roles_set()
-如果指定related_name='roles'则使用Menus.Object.first().roles()
+正向查找角色有哪些菜单：
+Roles.Object.first().menus.all()
+
+反向查找菜单给了哪些角色：
+django默认是Menus.Object.first().roles_set.all()
+
+反向查找别名related_name：
+如果在Roles表中menus字段指定related_name='roles'，则
+可使用Menus.Object.first().roles.all()
 ```
 
 #### model外键
@@ -107,7 +112,7 @@ django默认是Menus.Object.first().roles_set()
 在model的某个字段中如果设置unique=True，则数据库中字段就会建立唯一索引
 
 2、联合索引
-class RoleMenuRef(models.Model):
+class RoleMenuRel(models.Model):
     role = models.ForeignKey(Roles, verbose_name='角色')
     menu = models.ForeignKey(Menus, verbose_name='菜单权限')
 
