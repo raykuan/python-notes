@@ -7,3 +7,4 @@
 * [celery任务调度](./schedule.md)
 * [celery生产环境配置](./prod.md)
 * [celery配置实例](./settings-sample.md)
+* [celery异步回调](./callback.md)
