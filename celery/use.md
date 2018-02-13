@@ -1,4 +1,4 @@
-# 安装步骤
+## 安装步骤
 
 ### 1. celery和django-celery的区别
 
@@ -16,7 +16,7 @@ django-celery可以实现类似Linux crontab任务调度的功能
 ```
 
 
-# 配置步骤
+## 配置步骤
 
 ### 1. django项目settings.py中关于Celery的配置项
 ```
@@ -72,7 +72,7 @@ def send_reset_pass_email(to, username, code):
     sm = SendEmail()
     to = [to, ]
     subject = '验证邮件 [重置AD域用户密码申请]'
-    text = '<h3>%s 请及时重置您的密码，验证码有效时间为5分钟!</h3>验证码: <span style="color:red;">%s</span>' % (username, code)
+    text = '<h3>%s 验证码有效时间5分钟!</h3>验证码: <span style="color:red;">%s</span>' % (username, code)
     sm.send_mail(to, subject, text)
 
 ```
@@ -118,7 +118,7 @@ class UserResetADUserPassSendEmailAPIView(APIView):
 ```
 
 
-# 启动命令
+## 启动命令
 
 ```
 /env/python manage.py celery worker --loglevel=info -E -c 2 &

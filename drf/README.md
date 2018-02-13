@@ -1,4 +1,4 @@
-# records for django REST framework
+# django REST framework (drf)
 
 ## 目录
 * [request和response](./static_media.md)
