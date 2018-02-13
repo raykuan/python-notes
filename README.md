@@ -4,10 +4,10 @@
 
 * [Django](./django/README.md)
 
-* [Django REST framework](./django_rest/README.md)
-
-* [Scrapy](./scrapy/README.md)
+* [Django REST framework](./drf/README.md)
 
 * [Celery](./celery/README.md)
 
-* [Git](./git_op.md)
+* [Scrapy](./scrapy/README.md)
+
+* [Git](./git-op.md)
