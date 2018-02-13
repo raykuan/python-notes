@@ -1,6 +1,3 @@
 
-# 启动命令
+## django插件django-celery的使用
 
-```
-/env/python manage.py celery worker --loglevel=info -E -c 2 &
-```

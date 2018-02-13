@@ -1,6 +1,3 @@
 
-# 启动命令
+## celery任务调度
 
-```
-/env/python manage.py celery worker --loglevel=info -E -c 2 &
-```

@@ -1,6 +1,2 @@
 
-# 启动命令
-
-```
-/env/python manage.py celery worker --loglevel=info -E -c 2 &
-```
+## 生产环境中celery部署和进程管理
