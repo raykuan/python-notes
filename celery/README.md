@@ -6,4 +6,4 @@
 * [django使用封装的django-celery](./django-celery.md)
 * [celery任务调度](./schedule.md)
 * [celery生产环境配置](./prod.md)
-* [celery摘抄别人的配置](./settings-sample.md)
+* [celery配置实例](./settings-sample.md)

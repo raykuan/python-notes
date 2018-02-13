@@ -1,5 +1,7 @@
 
-## setting配置
+## celery配置实例
+
+摘抄至http://blog.csdn.net/u011350541/article/details/72885550
 ```
 #!/usr/bin/env python  
 import random  
@@ -30,10 +32,8 @@ CELERY_IGNORE_RESULT = True
 CELERY_SEND_EVENTS = False  
 CELERY_EVENT_QUEUE_EXPIRES = 60
 ```
-
 rmq作为消息队列, 并发worker数25, 每个worker最多执行一个任务就销毁(执行完进程销毁重建，释放内存)
 
-## setting配置
 ```
 # -*- coding:utf-8 -*-                                                                                                                                                    
 from datetime import timedelta  
