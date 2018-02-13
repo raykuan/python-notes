@@ -1,36 +1,29 @@
-## 安装步骤
-
-### 1. celery和django-celery的区别
-
-celery是原生的celery库，而django-celery是对celery进行了封装方便在django中使用    
-
-根据自己的需求选择使用celery和django-celery  
-
-django-celery可以实现类似Linux crontab任务调度的功能
-
-
-### 2. pip安装celery
+## 安装及启动celery
 
 ```
+安装celery
 /env/pip install celery
+
+启动celery
+/env/python manage.py celery worker --loglevel=info -E -c 2 &
 ```
 
+## 在django中使用celery
 
-## 配置步骤
-
-### 1. django项目settings.py中关于Celery的配置项
+### 1. 在django settings.py中添加celery配置项
 ```
-# Settings for Celery
+# 更多的配置项参见如下官方链接
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#new-lowercase-settings
 
+# Settings for Celery
 CELERY_ENABLE_UTC = False
 CELERY_TIMEZONE = 'Asia/Shanghai'
-BROKER_URL = 'redis://10.213.32.36:6379/1'   # celery broker 消息中间件的配置(一般使用rabbitmq或redis)
-CELERY_RESULT_BACKEND = 'redis://10.213.32.36:6379/2'  # backend是celery执行tasks结果保存的地方(可以是mysql等数据库)
-CELERY_TASK_RESULT_EXPIRES = 3600  # CELERY_RESULT_BACKEND中task执行结果的保存时间，默认是86400秒
+BROKER_URL = 'redis://10.213.32.36:6379/1'             # 指定redis作为消息代理broker(一般使用RabbitMQ和redis)
+CELERY_RESULT_BACKEND = 'redis://10.213.32.36:6379/2'  # 把任务结果存在redis(也支持mysql等关系数据库)
+CELERY_TASK_RESULT_EXPIRES = 60 * 60 * 24              # 任务过期时间，默认是86400
 ```
 
-### 2. 在django project配件文件目录下新建celery.py
+### 2. 在django project配置文件目录下新建celery.py
 ```
 # 从future模块导入absolute_import，防止celery.py模块就不会与Celery库相冲突
 from __future__ import absolute_import
@@ -57,10 +50,22 @@ app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 @app.task(bind=True)
 def debug_task(self):
     print('Request: {0!r}'.format(self.request))
+```
+
+### 3. 在django project配置文件目录下的__init__.py添加如下内容
+```
+from __future__ import absolute_import
+
+# This will make sure the app is always imported when
+# Django starts so that shared_task will use this app.
+
+from .celery import app as celery_app
+
+__all__ = ['celery_app']
 
 ```
 
-### 3. 在django app目录下新建tasks.py (当前APP中需要异步执行的函数都写在此文件中)
+### 4. 在django app目录下新建tasks.py (当前APP中需要异步执行的函数都写在此文件中)
 ```
 from __future__ import absolute_import
 from common.custom.sendmail import SendEmail
@@ -77,7 +82,7 @@ def send_reset_pass_email(to, username, code):
 
 ```
 
-### 4. 在django view中使用tasks.py异步函数
+### 5. 在django view中使用tasks.py异步函数
 ```
 from app import tasks
 
@@ -115,11 +120,4 @@ class UserResetADUserPassSendEmailAPIView(APIView):
                 raise exceptions.ValidationError({'username': [res['msg']]})
         else:
             raise exceptions.ValidationError({'username': ['域账号不能为空']})
-```
-
-
-## 启动命令
-
-```
-/env/python manage.py celery worker --loglevel=info -E -c 2 &
 ```
