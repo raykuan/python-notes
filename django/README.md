@@ -1,6 +1,7 @@
 # django notes records django learning journey
 
 # 目录
+* [django目录结构规范](./structure-sample.md)
 * [uwsgi部署](./uwsgi-conf.md)
 * [django setting中static和media静态文件配置](./static-media.md)
 * [django内置user用户认证](./user-auth.md)
