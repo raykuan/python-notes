@@ -37,78 +37,97 @@ yum -y install openssl openssl-devel
 #### 5. nginx配置文件（nginx.conf）
 ```
 [msad@adapi adauth]$ cat ~/nginx/conf/nginx.conf
-
-#user  nobody;
-worker_processes  1;
-
+user  wiseo wiseo;
+worker_processes  3;
 #error_log  logs/error.log;
-#error_log  logs/error.log  notice;
+error_log  logs/error.log  notice;
 #error_log  logs/error.log  info;
-
-#pid        logs/nginx.pid;
-
-
+pid        logs/nginx.pid;
+worker_rlimit_nofile 5120;
 events {
-    worker_connections  1024;
+    worker_connections  5120;
 }
 
 
 http {
     include       mime.types;
     default_type  application/octet-stream;
-
-    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-    #                  '$status $body_bytes_sent "$http_referer" '
-    #                  '"$http_user_agent" "$http_x_forwarded_for"';
-
-    #access_log  logs/access.log  main;
+ 
+    server_names_hash_bucket_size 128;
+    client_header_buffer_size 32k;
+    large_client_header_buffers 8 64k;
+    client_max_body_size 100m;
+    limit_conn_zone $binary_remote_addr zone=one:32k;
 
     sendfile        on;
-    #tcp_nopush     on;
+    tcp_nopush     on;
 
-    #keepalive_timeout  0;
-    keepalive_timeout  65;
+    keepalive_timeout  60;
+    tcp_nodelay on;
 
-    #gzip  on;
+    gzip  on;
+    gzip_min_length  1k;
+    gzip_buffers     4 16k;
+    gzip_http_version 1.0;
+    gzip_comp_level 2;
+    gzip_types       text/plain application/x-javascript text/css application/xml;
+    gzip_vary on;
+
+    log_format  wwwlogs  '$remote_addr - $remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for';
+    
+    # include vhost/*.conf;
+
+    #server {
+    #    listen 8080;
+    #    server_name case.eptok.com;
+        # enforce https
+    #    return 301 https://$server_name$request_uri;
+   # }
 
     server {
-        listen       8090;
-        server_name  localhost;
-
-        #charset koi8-r;
-
-        #access_log  logs/host.access.log  main;
-
-        # location / {
-        #    root   html;
-        #    index  index.html index.htm;
-        # }
-    }
-
-    server {
-        listen       4433 ssl;
-        server_name  localhost;
+        listen       4443 ssl default;
+        #server_name  _;
+        server_name  case.eptok.com;
+        server_name  _;
+        root /home/wiseo/wiseops;
+        underscores_in_headers on;
         ssl on;
-        ssl_certificate /home/msad/nginx_cert/ysepay.pem;
-        ssl_certificate_key /home/msad/nginx_cert/ysepay.key;
+        ssl_certificate /home/wiseo/ssl_cert/eptok.crt;
+        ssl_certificate_key /home/wiseo/ssl_cert/eptok.key;
         ssl_session_cache    shared:SSL:1m;
         ssl_session_timeout  5m;
         ssl_ciphers  HIGH:!aNULL:!MD5;
         ssl_prefer_server_ciphers  on;
         access_log  logs/access.log;
-        error_log  logs/uwsgi_error.log  notice;
+        error_log  logs/mobile_error.log  notice;
 
         location / {
-            root /home/msad/adauth;
-            uwsgi_pass 127.0.0.1:6000;
+            # root /home/wiseo/wiseops;
+            uwsgi_pass 127.0.0.1:9000;
             include uwsgi_params;
+            proxy_connect_timeout 30s;
+            proxy_send_timeout   90;
+            proxy_read_timeout   90;
+            proxy_buffer_size    32k;
+            proxy_buffers     4 32k;
+            proxy_busy_buffers_size 64k;
+            proxy_redirect     off;
+            proxy_hide_header  Vary;
+            proxy_set_header   Accept-Encoding '';
+            proxy_set_header   Host   $host;
+            proxy_set_header   Referer $http_referer;
+            proxy_set_header   Cookie $http_cookie;
+            proxy_set_header   X-Real-IP  $remote_addr;
+            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
         }
 
         location /static {
-            # root /home/adself/msldap;
-            alias /home/msad/adauth/static;
+            # root /home/wiseo/wiseops/;
+            # alias /home/wiseo/wiseops/static;
         }
+
     }
+
 }
 
 ```
